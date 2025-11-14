@@ -1,5 +1,6 @@
 # Imports
 import random
+import os
 
 # Variables
 coinScore = 0
@@ -12,10 +13,13 @@ def coinflip():
     if answer == "n":
       print(f"Your score was {coinScore}!")
       break
-    result = random.randint(1, 2)
-    if result == 2:
-      coinScore += 1
-    print(f"Your score was {coinScore}!")
+    elif answer == "y":
+      result = random.randint(1, 2)
+      if result == 2:
+        coinScore += 1
+      print(f"Your score was {coinScore}!")
+    elif answer == "clear":
+      os.system('cls' if os.name == 'nt' else 'clear')
 
 # The main loop
 coinflip()
